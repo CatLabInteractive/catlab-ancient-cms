@@ -29,6 +29,10 @@ class Modules_Core
 				case 'jpeg':
 					header ('Content-type: image/' . $extension);
 				break;
+
+				case 'css':
+					header ('Content-type: text/css');
+				break;
 			}
 
 			return file_get_contents ($path);
