@@ -132,13 +132,17 @@ class CMS
 			$iKey = 1;
 		}
 
-		if ($sInputs[2] == 'core')
+		if ($sInputs[1] == 'core')
 		{
 			$this->sModule = 'core';
 
 			array_shift ($sInputs);
 			array_shift ($sInputs);
 			$this->sAction = implode ('/', $sInputs);
+
+			$this->sOutput = 'html';
+
+			return;
 		}
 		
 		// Module stuff
