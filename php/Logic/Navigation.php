@@ -115,6 +115,9 @@ class Logic_Navigation
 		}
 		
 		$out = '';
+
+		$tabs = 0;
+		$level = 1;
 		
 		$t = "";
 		for ($i = 0 - $tabs; $i < ($level*2); $i ++)
