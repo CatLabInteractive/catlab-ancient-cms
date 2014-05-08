@@ -11,6 +11,7 @@ class Modules_Core
 {
 	public function getHTML ()
 	{
-		return 'bla';
+		$url = $this->objCMS->getAction ();
+		return $url;
 	}
 } 
