@@ -12,7 +12,7 @@ class Modules_Core
 	public function getHTML ()
 	{
 		$url = $this->objCMS->getAction ();
-		$path = 'core/' . $url;
+		$path = '../core/' . $url;
 
 		if (file_exists ($path))
 		{
