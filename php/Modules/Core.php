@@ -12,10 +12,15 @@ class Modules_Core
 	public function getHTML ()
 	{
 		$url = $this->objCMS->getAction ();
+		$path = 'core/' . $url;
 
-		if (file_exists ('core/' . $url))
+		if (file_exists ($path))
 		{
-			echo file_get_contents ('core/' . $url);
+			return file_get_contents ($path);
+		}
+		else
+		{
+			return 'File not found: ' . $path;
 		}
 	}
 } 
