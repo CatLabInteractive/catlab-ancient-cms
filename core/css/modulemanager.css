@@ -1,0 +1,35 @@
+ul#mm_tablist
+{
+	float: left;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	margin-left: 10px;
+}
+
+ul#mm_tablist li
+{
+	float: left;
+	position: relative;
+	z-index: 1;
+	margin-right: 2px;
+	text-align: center;
+}
+
+ul#mm_tablist li a
+{
+	width: 120px;
+	padding: 4px;
+	display: block;
+	text-decoration: none;
+	color: black;
+	border: 1px solid gray;
+	background-color: #eeeeee;
+	outline: none;
+}
+
+ul#mm_tablist li a.active
+{
+	border-bottom: 1px solid white;
+	background-color: white;
+}

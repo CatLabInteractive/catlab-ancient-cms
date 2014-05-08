@@ -1,0 +1,119 @@
+body
+{
+	font-size: 10px;
+	font-family: Verdana;
+}
+
+input, button
+{
+	display: block;
+}
+
+div#tabs ul
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	list-style-position: inside;
+	height: 18px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+}
+
+div#tabs ul li
+{
+		width: 100px;
+		float: left;
+		display: block;
+		position: relative;
+}
+
+div#tabs ul li a
+{
+	display: block;
+	border: 1px solid black;
+	padding: 2px 5px;
+	margin: 0px 0px 0px 4px; 
+	background-color: #F0F0EE;
+	text-decoration: none;
+	color: black;
+	outline-style: none;
+	height: 13px;
+}
+
+div#tabs ul li a.active
+{
+	background-color: white;
+	border-bottom: 1px solid white;
+}
+
+div#panel_wrapper
+{
+	padding: 5px;
+	border: 1px solid black;
+	margin-bottom: 5px;
+	min-height: 250px;
+	margin-top: 0px;
+}
+
+fieldset
+{
+	padding: 10px;
+}
+
+fieldset div
+{
+	margin-bottom: 10px;
+}
+
+label
+{
+	position: absolute;
+	text-align: right;
+	padding-top: 2px;
+}
+
+input
+{
+	margin-left: 100px;
+}
+
+input.checkbox
+{
+	margin-left: 15px;
+}
+
+label.checkbox
+{
+	left: 65px;
+	padding-top: 0px;
+}
+
+div#gallery_content
+{
+
+}
+
+div#gallery_content div.image
+{
+	float: left;
+	width: 100px;
+	height: 100px;
+	border: 1px solid gray;
+	margin: 2px;
+	text-align: center;
+}
+
+div#gallery_content div.image a
+{
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+div#gallery_content div.image a img
+{
+	display: none;
+}

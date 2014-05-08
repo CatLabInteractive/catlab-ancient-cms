@@ -1,0 +1,16 @@
+div#page_save_button a
+{
+	background-image: url('../icons/disk.png');
+}
+
+div#page_delete_button a
+{
+	background-image: url('../icons/page_delete.png');
+}
+
+div.plugin_container
+{
+	margin-top: 5px;
+	border: 1px solid #dddddd;
+	padding: 5px;
+}

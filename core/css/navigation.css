@@ -1,0 +1,145 @@
+#page_actions ul li
+{
+	padding: 5px;
+	padding-left: 0px;
+	background-repeat: no-repeat;
+	background-position: center left;
+	height: 16px;
+	margin-left: 2px;
+}
+
+#page_actions ul li a
+{
+	padding-left: 23px;
+}
+
+li#page_action_save
+{
+	background: url('../icons/page_save.png');
+}
+
+li#page_action_delete
+{
+	background: url('../icons/page_delete.png');
+}
+
+div#page_tinymce input.page_title
+{
+	width: 350px;
+}
+
+ul#navigation
+{
+	padding: 10px;
+	float: left; 
+	width: 705px; 
+	border: 1px solid #dddddd;
+}
+
+div#navActions
+{
+	float: right; 
+	width: 161px;
+}
+
+div#nav_save_button a
+{
+	background-image: url('../icons/disk.png');
+}
+
+div#nav_add_button a
+{
+	background-image: url('../icons/page_add.png');
+}
+
+div#nav_addlink_button a
+{
+	background-image: url('../icons/page_link.png');
+}
+
+ul#navigation li
+{
+	margin-bottom: 10px;
+}
+
+ul#navigation li ul li
+{
+	margin-bottom: 3px;
+}
+
+ul#navigation li ul li a.remove
+{
+	position: absolute;
+	left: 670px;
+}
+
+ul#navigation li ul li a.edit
+{
+	position: absolute;
+	left: 640px;
+}
+
+#floatingContainer
+{
+	z-index: 100;
+}
+
+#floatingContainer ul
+{
+	margin-left:20px;	/* Left spacing */
+	padding-left:0px;	
+}
+
+div#dragDropIndicator
+{
+	z-index: 100;
+}
+
+/* DHTML Goodies tree */
+.dhtmlgoodies_tree,#floatingContainer
+{
+	margin:0px;
+	padding:0px;
+}
+
+/* Sub menu groups */
+.dhtmlgoodies_tree ul
+{
+	margin-left: 25px;	/* Left spacing */
+	padding-left: 0px;
+	display: none;
+}
+
+.dhtmlgoodies_tree li,#floatingContainer li
+{
+	list-style-type:none;
+	vertical-align:middle;
+	
+}
+
+/* Node links */
+.dhtmlgoodies_tree li a,#floatingContainer li a
+{
+	color:#000;
+	text-decoration:none;
+	font-family: Arial;
+	padding-left:1px;
+	line-height:13px;
+	margin-left:2px;
+	
+}
+
+.dhtmlgoodies_tree li a.highlightedNodeItem
+{
+	color:#FFF;
+	background-color:#009;
+}
+
+/* Css for the text input - rename item */
+.dhtmlgoodies_tree input.folderTreeTextBox
+{
+	font-size:10px;
+	margin:0px;
+	padding:0px;
+	height:12px;
+}

@@ -1,0 +1,131 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+body
+{
+	font-family: Verdana;
+	font-size: 11px;
+	background-color: #dddddd;
+}
+
+div#container
+{
+	position: absolute;
+	width: 800px;
+	margin-left: -400px;
+	left: 50%;
+}
+
+div#contentContainer
+{
+	border: 1px solid black;
+	background: white;
+	padding: 10px;
+	padding-bottom: 30px;
+}
+
+p
+{
+	text-align: justify;
+}
+
+h1
+{
+	text-align: center;
+	font-size: 50px;
+	border-bottom: 1px solid gray;
+	padding-bottom: 25px;
+	padding-top: 20px;
+	font-family: Georgia;
+	margin-bottom: 5px;
+}
+
+p, h2, h3, h4
+{
+	margin-bottom: 2px;
+}
+
+div#menu
+{
+	float: left;
+	width: 20%;
+	clear: both;
+}
+
+div#menu div
+{
+	padding: 5px;
+}
+
+div#content
+{
+	float: left;
+	width: 80%;
+}
+
+ul.level1 li
+{
+	padding-top: 8px;
+}
+
+ul.level1
+{
+	list-style-type: none;
+	margin: 0px 5px;
+	padding: 0px;
+}
+
+ul#main
+{
+	padding: 0px 10px 10px 10px;
+	margin: 0px;
+	margin-right: 10px;
+	border: 1px solid gray;
+}
+
+ul.level1 ul
+{
+	list-style-type: none;
+	margin: 0px 10px;
+}
+
+a img
+{
+	border: none;
+}
+
+img
+{
+	margin: 5px;
+}
+
+ul, ol
+{
+	margin: 8px 20px;
+}
+
+div#footer
+{
+	clear: both;
+	padding-top: 5px;
+}
+
+div#footer ul
+{
+	text-align: center;
+	padding-bottom: 0px;
+}
+
+div#footer ul li
+{
+	display: inline;
+	margin: 0px 5px;
+}
+
+a
+{
+	color: #dd0000;
+}
