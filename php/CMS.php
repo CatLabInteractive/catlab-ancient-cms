@@ -332,9 +332,6 @@ class CMS
 		
 		// Get the current module
 		$module = $this->getModule ();
-
-		var_dump ($module);
-		exit;
 		
 		if ($this->sOutput == 'json')
 		{
