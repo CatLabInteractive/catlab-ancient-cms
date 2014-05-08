@@ -39,7 +39,7 @@ class Core_Database
 		
 		if (!$link)
 		{
-			die ('<p><strong>Could not connect to database.</strong><br />Connection failed.</p>');
+			die ('<p><strong>Could not connect to database.</strong><br />Connection failed.<br />' . mysql_error () . '</p>');
 		}
 		
 		$this->mlink = $link;
