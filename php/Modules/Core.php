@@ -16,6 +16,21 @@ class Modules_Core
 
 		if (file_exists ($path))
 		{
+			$extension = end (explode ('.', $path));
+			switch (strtolower ($extension))
+			{
+				case 'js':
+					header ('Content-type: application/json');
+				break;
+
+				case 'gif':
+				case 'png':
+				case 'jpg':
+				case 'jpeg':
+					header ('Content-type: image/' . $extension);
+				break;
+			}
+
 			return file_get_contents ($path);
 		}
 		else
