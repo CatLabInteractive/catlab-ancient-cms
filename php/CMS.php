@@ -131,6 +131,15 @@ class CMS
 			$this->bIsCMS = true;
 			$iKey = 1;
 		}
+
+		if ($sInputs[2] == 'core')
+		{
+			$this->sModule = 'core';
+
+			array_shift ($sInputs);
+			array_shift ($sInputs);
+			$this->sAction = implode ('/', $sInputs);
+		}
 		
 		// Module stuff
 		if (!empty ($sInputs[$iKey+1]) && array_key_exists ($sInputs[$iKey+1], $this->getAllLanguages ()))
