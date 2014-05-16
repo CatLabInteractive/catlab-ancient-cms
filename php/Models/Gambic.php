@@ -208,7 +208,7 @@ class Models_Gambic
 			array
 			(
 				'persona_assertion' => $assertion,
-				'persona_domain' => 'http://' . $_SERVER['SERVER_NAME'] . ':80',
+				'persona_domain' => 'http://' . $_SERVER['HTTP_HOST'] . ':80',
 				'referer' => $this->getReferer ()
 			)
 		);
