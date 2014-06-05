@@ -125,7 +125,16 @@ class Logic_Navigation
 			$t .= "\t";
 		}
 		$out .= $t . '<ul class="level'.($level+1).'" '.(!empty ($id) ? 'id="'.$id.'"' : null).'>' . "\n";
-	
+
+		$out .= $this->drawNavigationLis ($id, $curpage);
+
+		$out .= $t . '</ul>' . "\n";
+		
+		return $out;
+	}
+
+	public function drawNavigationLis ($id = null, $curpage = null)
+	{
 		$first = true;
 		foreach ($this->getChildren () as $obj)
 		{
@@ -134,7 +143,7 @@ class Logic_Navigation
 			{
 				$classname = ' active';
 			}
-		
+
 			$v = $obj->getField ();
 			if ($level == 0 && $first)
 			{
@@ -145,19 +154,18 @@ class Logic_Navigation
 			{
 				$out .= $t . "\t" . '<li id="'.$id.''.$v['id'].'" class="'.$v['sClass'].'">' . "\n";
 			}
-			
+
 			$out .= $t . "\t\t" . '<a href="'.$v['sUrl'].'" title="'.$v['sName'].'" target="'.$v['sTarget'].'" class="'.$v['sTargetLoc'].$classname.'">'.$v['sName'] . "</a>\n";
-			
+
 			//echo $t . "\t\t" . ' | <a href="javascript:void(0);" class="handler">Move</a>' . "\n";
 			if ($obj->hasChildren ())
 			{
 				$out .= $obj;
 			}
-			
+
 			$out .= $t . "\t" . '</li>' . "\n";
 		}
-		$out .= $t . '</ul>' . "\n";
-		
+
 		return $out;
 	}
 	
