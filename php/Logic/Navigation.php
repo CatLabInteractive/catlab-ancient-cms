@@ -107,7 +107,7 @@ class Logic_Navigation
 		return $this->drawNavigationUl ();
 	}
 	
-	protected function drawNavigationUl ($id = null, $curpage = null)
+	public function drawNavigationUl ($id = null, $curpage = null)
 	{
 		if (!$this->hasChildren ())
 		{
