@@ -228,7 +228,12 @@ class Models_Gambic
 			return true;
 		}
 
-		$this->error = $chk['error'];
+		if (isset ($chk['error'])) {
+			$this->error = $chk['error'];
+		}
+		else {
+			$this->error = $chk;
+		}
 
 		return false;
 	}
