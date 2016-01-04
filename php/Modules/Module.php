@@ -299,7 +299,7 @@ abstract class Modules_Module
 	/*
 		Admin part
 	*/
-	public function getEditorJSON ()
+	public function getEditorJSON ($id = null)
 	{
 		return json_encode
 		(
@@ -311,12 +311,12 @@ abstract class Modules_Module
 		);
 	}
 	
-	public function getPluginEditor ()
+	public function getPluginEditor ($id = null)
 	{
 		return '<p class="page_nosettings">This module does not have settings</p>';
 	}
 	
-	public function getEditorActions ()
+	public function getEditorActions ($id = null)
 	{
 		return null;
 	}
