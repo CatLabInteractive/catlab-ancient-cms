@@ -136,6 +136,9 @@ class Logic_Navigation
 	public function drawNavigationLis ($id = null, $curpage = null)
 	{
 		$first = true;
+		$out = '';
+		$t = "";
+
 		foreach ($this->getChildren () as $obj)
 		{
 			$classname = '';
@@ -145,7 +148,7 @@ class Logic_Navigation
 			}
 
 			$v = $obj->getField ();
-			if ($level == 0 && $first)
+			if ($first)
 			{
 				$out .= $t . "\t" . '<li id="'.$id.''.$v['id'].'" class="'.$v['sClass'].' first">' . "\n";
 				$first = false;
@@ -180,6 +183,9 @@ class Logic_Navigation
 		}
 	
 		$out = '';
+
+		$tabs = 0;
+		$level = 1;
 		
 		$t = "";
 		for ($i = 0 - $tabs; $i < ($level*2); $i ++)
