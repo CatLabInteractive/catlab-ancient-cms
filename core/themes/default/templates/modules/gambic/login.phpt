@@ -31,5 +31,6 @@
 </form>
 
 <p>
-	Don't have an account yet? <a href="<?=$register_url?>">Register here</a>.
+	Don't have an account yet? <a href="<?=$register_url?>">Register here</a>.<br >
+	Lost password? <a href="<?=$recover_password_url?>">Recover password</a>.
 </p>

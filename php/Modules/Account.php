@@ -45,13 +45,10 @@ class Modules_Account extends Modules_Page
 
 			case 'login':
 			default:
-				if ($this->gambic->isLogin ())
-				{
+				if ($this->gambic->isLogin ()) {
 					$row['sName'] = 'Logout';
 					$row['sUrl'] = $this->objCMS->getUrl ($page['n_module'], 'logout');
-				}
-				else
-				{
+				} else {
 					$row['sName'] = 'Login';
 					$row['sUrl'] = $this->objCMS->getUrl ($page['n_module'], 'login');
 				}
@@ -156,6 +153,10 @@ class Modules_Account extends Modules_Page
 			{
 				return $this->login ($this->gambic->getError ());
 			}
+		}
+
+		else if ($action === 'lostPassword') {
+			return $this->lostPassword();
 		}
 
 		else if ($this->gambic->isLogin ())
@@ -342,6 +343,7 @@ class Modules_Account extends Modules_Page
 
 		$page->set ('login_action', $this->objCMS->getUrl ('account', 'login'));
 		$page->set ('register_url', $this->objCMS->getUrl ('account', 'register'));
+        $page->set ('recover_password_url', $this->objCMS->getUrl ('account', 'lostPassword'));
 
 		if (isset ($error))
 		{
@@ -349,6 +351,22 @@ class Modules_Account extends Modules_Page
 		}
 
 		return $page->parse ('modules/gambic/login.phpt');
+	}
+
+	private function lostPassword()
+	{
+        $page = new Core_Template ();
+
+        $email = Core_Tools::getInput ('_POST', 'email', 'varchar');
+        if ($email) {
+            if ($this->gambic->lostPassword ($email)) {
+            	return '<h2>Lost password?</h2><p>We\'ve sent you an email.</p>';
+			}
+		}
+
+        $page->set ('submit_url', $this->objCMS->getUrl ('account', 'lostPassword'));
+
+        return $page->parse ('modules/gambic/lostpassword.phpt');
 	}
 
 	private function register ()

@@ -286,6 +286,21 @@ class Models_Gambic
 		return false;
 	}
 
+	public function lostPassword($email)
+    {
+        // First register
+        $chk = $this->file_get_contents
+        (
+            self::API_URL . 'lostPassword',
+            array
+            (
+                'email' => $email
+            )
+        );
+
+        return true;
+    }
+
 	public function getServers ()
 	{
 		$data = $this->file_get_Contents
