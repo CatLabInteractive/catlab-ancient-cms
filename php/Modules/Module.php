@@ -390,7 +390,7 @@ abstract class Modules_Module
 		}
 	}
 	
-	protected function getMetaContent ($sTableName, $id, $allLanguages = false)
+	protected function getMetaContentFromTable ($sTableName, $id, $allLanguages = false)
 	{
 		$fields = "n.n_id, n.n_container, n.n_p_id, n.n_level, n.n_module, n.n_options, ";
 		$joins = "";

@@ -34,7 +34,7 @@ class Modules_Page extends Modules_Module
 		}
 	}
 
-	public function getPluginEditor ($id)
+	public function getPluginEditor ($id = null)
 	{
 		$db = Core_Database::__getInstance ();
 		$page = new Core_Template ();
@@ -68,7 +68,7 @@ class Modules_Page extends Modules_Module
 		return $page->parse ('modules/page/editor.phpt');
 	}
 	
-	public function getEditorActions ($id)
+	public function getEditorActions ($id = null)
 	{
 		$page = new Core_Template ();
 		
@@ -77,7 +77,7 @@ class Modules_Page extends Modules_Module
 		return $page->parse ('modules/page/actions.phpt');
 	}
 	
-	public function getEditorJSON ($id)
+	public function getEditorJSON ($id = null)
 	{
 		switch ($this->objCMS->getAction ())
 		{

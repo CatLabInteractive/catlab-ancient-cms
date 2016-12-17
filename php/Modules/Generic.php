@@ -24,7 +24,7 @@ abstract class Modules_Generic extends Modules_Module
 	/*
 		Output (used to hijack the output if RSS is selected
 	*/
-	public function getHTML ()
+	public function getHTML ($template = 'index.phpt')
 	{
 		switch ($this->objCMS->getAction ())
 		{
@@ -894,13 +894,13 @@ abstract class Modules_Generic extends Modules_Module
 		}
 	}
 	
-	public function getPluginEditor ()
+	public function getPluginEditor ($id = null)
 	{
 		$id = $this->objCMS->getRecordId ();
 	
 		$page = new Core_Template ();
 		
-		$aContent = $this->getMetaContent ('page', $id, true);
+		$aContent = $this->getMetaContentFromTable ('page', $id, true);
 		
 		// Get all languages
 		foreach ($this->objCMS->getAllLanguages () as $k => $v)
@@ -927,7 +927,7 @@ abstract class Modules_Generic extends Modules_Module
 		return $page->parse ('modules/generic/plugineditor.phpt');
 	}
 	
-	public function getEditorActions ()
+	public function getEditorActions ($id = null)
 	{
 		$id = $this->objCMS->getRecordId ();
 	
@@ -936,7 +936,7 @@ abstract class Modules_Generic extends Modules_Module
 		return $page->parse ('modules/generic/actions.phpt');
 	}
 	
-	public function getEditorJSON ()
+	public function getEditorJSON ($id = null)
 	{
 		$id = intval ($this->objCMS->getRecordId ());
 		

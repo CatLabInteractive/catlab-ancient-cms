@@ -8,10 +8,14 @@ if (!function_exists("mysql_connect")){
     disable_functions =mysql_connect,mysql_pconnect,mysql_select_db,mysql_ping,mysql_query,mysql_fetch_assoc,mysql_num_rows,mysql_fetch_array,mysql_error,mysql_insert_id,mysql_close,mysql_real_escape_string,mysql_data_seek,mysql_result
     */
     function mysql_connect($host, $username, $password){
-        return mysqli_connect($host, $username, $password);
+        global $dbconnect;
+        $dbconnect = mysqli_connect($host, $username, $password);
+        return $dbconnect;
     }
     function mysql_pconnect($host, $username, $password){
-        return mysqli_connect("p:".$host, $username, $password);
+        global $dbconnect;
+        $dbconnect = mysqli_connect("p:".$host, $username, $password);
+        return $dbconnect;
     }
     function mysql_select_db($db,$dbconnect){
         return mysqli_select_db ( $dbconnect,$db );

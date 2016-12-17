@@ -9,7 +9,7 @@
 class Modules_Core
 	extends Modules_Page
 {
-	public function getHTML ()
+	public function getHTML ($template = 'index.phpt')
 	{
 		$url = $this->objCMS->getAction ();
 		$path = CMS_SYSTEM_PATH . 'core/' . $url;

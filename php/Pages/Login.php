@@ -55,7 +55,7 @@ class Pages_Login extends Modules_Module
 		This login form will be displayed without any other data.
 		(Makes you think about Wordpress, right? Well, that's the basic idea.)
 	*/
-	public function getHTML ()
+	public function getHTML ($template = 'index.phpt')
 	{
 		return parent::getHTML ('login.phpt');
 	}

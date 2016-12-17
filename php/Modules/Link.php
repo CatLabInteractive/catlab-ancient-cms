@@ -34,7 +34,7 @@ class Modules_Link extends Modules_Page
 		return $field;
 	}
 	
-	public function getPluginEditor ($id)
+	public function getPluginEditor ($id = null)
 	{
 		$page = new Core_Template ();
 		
@@ -87,7 +87,7 @@ class Modules_Link extends Modules_Page
 		);
 	}
 	
-	public function getEditorActions ($id)
+	public function getEditorActions ($id = null)
 	{
 		$page = new Core_Template ();
 		$page->set ('remove_url', $this->objCMS->getAdminUrl ('pages', 'delete', $id, 'output=json'));

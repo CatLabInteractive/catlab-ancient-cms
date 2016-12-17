@@ -1,7 +1,7 @@
 <?php
 class Pages_Upload extends Pages_Admin
 {
-	public function getHTML ()
+	public function getHTML ($template = 'index.phpt')
 	{
 		$text = Core_Text::__getInstance ();
 		$text->setFile ('admin');

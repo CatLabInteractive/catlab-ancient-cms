@@ -13,7 +13,7 @@ class Modules_Account extends Modules_Page
 		$this->gambic = new Models_Gambic ();
 	}
 
-	public function getEditorActions ($id)
+	public function getEditorActions ($id = null)
 	{
 		$page = new Core_Template ();
 		$page->set ('remove_url', $this->objCMS->getAdminUrl ('pages', 'delete', $id, 'output=json'));
@@ -61,7 +61,7 @@ class Modules_Account extends Modules_Page
 		return $row;
 	}
 
-	public function getHTML ()
+	public function getHTML ($template = 'index.phpt')
 	{
 		$action = $this->objCMS->getAction ();
 
@@ -465,7 +465,7 @@ class Modules_Account extends Modules_Page
 		}
 	}
 
-	public function getEditorJSON ()
+	public function getEditorJSON ($id = null)
 	{
 		$id = intval ($this->objCMS->getRecordId ());
 		
@@ -502,7 +502,7 @@ class Modules_Account extends Modules_Page
 		);
 	}
 
-	public function getPluginEditor ()
+	public function getPluginEditor ($id = null)
 	{
 		$id = $this->objCMS->getRecordId ();
 		$aContent = $this->getMetaContent ($id, true);
