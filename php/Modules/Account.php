@@ -351,8 +351,6 @@ class Modules_Account extends Modules_Page
 
 	private function register ()
 	{
-		return '<p>Please use persona login to register.</p>';
-
 		$text = Core_Text::__getInstance ();
 
 		$error = null;
