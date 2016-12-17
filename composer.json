@@ -1,0 +1,13 @@
+{
+    "name": "catlabinteractive/catlab-ancient-cms",
+    "description": "Very old code used in a few old projects. Storing here to make easier to use with composer :) Don't use. Edit",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CatLab Interactive",
+            "email": "info@catlab.be"
+        }
+    ],
+    "require": {}
+}
