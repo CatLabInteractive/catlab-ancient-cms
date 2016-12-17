@@ -3,7 +3,7 @@ class Core_Login
 {
 	private $isLogin = false;
 
-	public function __getInstance ()
+	public static function __getInstance ()
 	{
 		static $in;
 		if (!isset ($in))
