@@ -10,6 +10,7 @@ error_reporting(E_ALL & ~ E_STRICT);
 session_start ();
 
 set_include_path (get_include_path () . PATH_SEPARATOR . CMS_SYSTEM_PATH.'php' . PATH_SEPARATOR . CMS_CLIENT_PATH.'php');
+require 'fix_php7_mysql.php';
 
 /*
 	Check for configuration 
