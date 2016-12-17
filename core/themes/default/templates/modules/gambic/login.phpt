@@ -1,21 +1,10 @@
 <?php $this->setTextSection ('login', 'gambic'); ?>
 
-<h2><?=$this->getText ('login'); ?></h2>
-
-<p><?=$this->getText ('aboutPersona'); ?> <a href="http://www.catlab.be/en/news/read/12/"><?=$this->getText ('why'); ?></a></p>
-
-<p style="margin-top: 20px; margin-bottom: 20px;">
-	<a href="<?=$login_action?>" class="persona-button catlab-persona-login"><span><?=$this->getText ('signinPersona'); ?></span></a>
-</p>
-
-
-<h2>Ancient method</h2>
+<h2>Login</h2>
 
 <?php if (isset ($error) && !empty ($error)) { ?>
 	<p class="false"><?=$error?></p>
 <?php } ?>
-
-<p>... for people who like to remember passwords.</p>
 
 <form method="post" action="<?=$login_action?>">
 

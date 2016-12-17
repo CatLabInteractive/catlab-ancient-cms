@@ -202,6 +202,9 @@ class Models_Gambic
 
 	public function personaLogin ($assertion)
 	{
+	    $this->error = 'No longer supported';
+	    return false;
+
 		$chk = $this->file_get_contents
 		(
 			self::API_URL . 'login',

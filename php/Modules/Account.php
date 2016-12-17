@@ -94,6 +94,8 @@ class Modules_Account extends Modules_Page
 
 	private function getPersonaLogin ()
 	{
+        return 'no longer supported';
+
 		$assertion = Core_Tools::getInput ('_POST', 'assertion', 'varchar');
 		$response = $this->gambic->personaLogin ($assertion);
 
