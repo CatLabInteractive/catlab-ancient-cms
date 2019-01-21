@@ -14,23 +14,12 @@
 		'static_url' : '<?=CMS_FULL_URL?>',
 		'language' : '<?=$objText->getCurrentLanguage ();?>'
 	};
-
-	CMS.session = {
-		'persona' :
-		{
-			'user' : <?php if (isset ($_SESSION['personauser'])) { echo "'" . $_SESSION['personauser'] . "'"; } else { echo 'null'; } ?> 
-		}
-	};
 </script>
 
 <script type="text/javascript" src="<?=CMS_FULL_URL?>core/javascript/prototype.js"></script>
 <script src="<?=CMS_FULL_URL?>core/javascript/scriptaculous/scriptaculous.js" type="text/javascript"></script>
 <script type="text/javascript" src="<?=CMS_FULL_URL?>core/javascript/json.js"></script>
 <script type="text/javascript" src="<?=CMS_FULL_URL?>core/javascript/formchecker.js"></script>
-
-<script src="https://login.persona.org/include.js"></script>
-<link href="<?=CMS_FULL_URL?>core/css/persona-buttons.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<?=CMS_FULL_URL?>core/javascript/persona-login.js"></script>
 
 <?php
 
