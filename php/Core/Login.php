@@ -36,10 +36,20 @@ class Core_Login
 	{
 		return true;
 	}
-	
+
+	/**
+	 * @param $email
+	 * @param $password
+	 * @return bool
+	 */
 	public function doLogin ($email, $password)
-	{ 
-		$_SESSION['isLogin'] = ($email == 'admin' && md5($password) == 'da25915f039ea9a9e7176c0fd9646115');
+	{
+		if (!defined('ADMIN_USERNAME') || !defined('ADMIN_PASSWORD')) {
+			$_SESSION['isLogin'] = false;
+			return false;
+		}
+
+		$_SESSION['isLogin'] = ($email == ADMIN_USERNAME && password_verify($password, ADMIN_PASSWORD));
 		return $_SESSION['isLogin'] == true;
 	}
 	
@@ -48,4 +58,3 @@ class Core_Login
 		unset ($_SESSION['isLogin']);
 	}
 }
-?>

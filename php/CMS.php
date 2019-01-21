@@ -98,7 +98,7 @@ class CMS
 		
 		if (empty ($sModule))
 		{
-			$sModule = $this->sModule;
+			$sModule = '';
 		}
 		
 		$slug = 'cms/'.$text->getCurrentLanguage ().'/'.
@@ -356,4 +356,3 @@ class CMS
 		}
 	}
 }
-?>
