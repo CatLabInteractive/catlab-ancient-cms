@@ -223,46 +223,37 @@ class Modules_Page extends Modules_Module
 			return false;
 		}
 	}
-	
+
 	private function fixLinksInHTML ($input)
 	{
-		$callback = create_function 
-		(
-			'$match',
-			'
-				$out = explode (\'"\', $match[0]);
-				
-				foreach ($_COOKIE as $kk => $vv)
-				{
-					if (strpos ($kk, "cms_ref_") !== false)
-					{
-						$refn = substr ($kk, strlen ("cms_ref_"));
-				
-						if 
-						(
-							!strpos ($out[0], $refn."=") && 
-							strpos ($out[0], CMS_FULL_URL) === false
-						)
-						{
-							if (strpos ($out[0], "?") > 0)
-							{
-								$out[0] .= "&".$refn."=".$vv;
-							}
-							else
-							{
-								$out[0] .= "?".$refn."=".$vv;
-							}
+		$callback = function($match) {
+			$out = explode('"', $match[0]);
+
+			foreach ($_COOKIE as $kk => $vv) {
+				if (strpos($kk, "cms_ref_") !== false) {
+					$refn = substr($kk, strlen("cms_ref_"));
+
+					if
+					(
+						!strpos($out[0], $refn . "=") &&
+						strpos($out[0], CMS_FULL_URL) === false
+					) {
+						if (strpos($out[0], "?") > 0) {
+							$out[0] .= "&" . $refn . "=" . $vv;
+						} else {
+							$out[0] .= "?" . $refn . "=" . $vv;
 						}
 					}
 				}
-		
-				return implode (\'"\', $out);;
-			'
-		);
+			}
 
-		$regexp = '@(http?://([-\w\.]+)+(:\d+)?(/([\w/_\.]*(\?\S+)?)?)?)@'; 
+			return implode('""', $out);
+		};
+
+
+		$regexp = '@(http?://([-\w\.]+)+(:\d+)?(/([\w/_\.]*(\?\S+)?)?)?)@';
 		$input = preg_replace_callback ($regexp, $callback, $input);
-		
+
 		return $input;
 	}
 	
@@ -271,4 +262,3 @@ class Modules_Page extends Modules_Module
 		return true;
 	}
 }
-?>
