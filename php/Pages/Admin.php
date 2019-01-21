@@ -10,7 +10,7 @@ class Pages_Admin extends Modules_Module
 		Returns a multiple dimension array
 		with all (printable) navigation items.
 	*/
-	public function getNavigation ()
+	public function getNavigation ($showAll = false)
 	{
 		$text = Core_Text::__getInstance ();
 		
