@@ -192,7 +192,7 @@ abstract class Modules_Generic extends Modules_Module
 		$addWhere = "";
 		if (!$showEmpty)
 		{
-			$addWhere = 'WHERE meta2content.m_title > ""';
+			$addWhere = " WHERE meta2content.m_title <> '' ";
 		}
 		
 		// Count all records
@@ -272,7 +272,7 @@ abstract class Modules_Generic extends Modules_Module
 		$addWhere = "";
 		if (!$showEmpty)
 		{
-			$addWhere = 'WHERE meta2content.m_title > ""';
+			$addWhere = " WHERE meta2content.m_title <> '' ";
 		}
 		
 		// Count all records
@@ -398,7 +398,7 @@ abstract class Modules_Generic extends Modules_Module
 		$addWhere = "";
 		if (!$showEmpty)
 		{
-			$addWhere = 'WHERE meta2content.m_title > ""';
+			$addWhere = ' WHERE meta2content.m_title <> "" ';
 		}
 		
 		try
