@@ -22,6 +22,7 @@ class CMS
 	private $sOutput = 'html';
 	
 	private $objSettings = null;
+	private $objBreadcrumb = null;
 	private $sSiteTitle = 'Undefined Site';
 
 	/*
@@ -77,7 +78,7 @@ class CMS
 		
 		$slug = $text->getCurrentLanguage ().'/'.
 			urlencode ($sModule).'/'.
-			urlencode ($sAction).'/'.
+			urlencode ((string) $sAction).'/'.
 			(!empty($iRecord) ? urlencode($iRecord).'/' : null ).
 			(!empty ($miscdata) ? urlencode ($miscdata) . '/' : null)
 		;
@@ -103,7 +104,7 @@ class CMS
 		
 		$slug = 'cms/'.$text->getCurrentLanguage ().'/'.
 			urlencode($sModule).'/'.
-			urlencode($sAction).'/'.
+			urlencode((string) $sAction).'/'.
 			(!empty($iRecord) ? urlencode($iRecord).'/' : null );
 		
 		if (CMS_NICE_URLS)
@@ -132,7 +133,7 @@ class CMS
 			$iKey = 1;
 		}
 
-		if ($sInputs[1] == 'core')
+		if (isset ($sInputs[1]) && $sInputs[1] == 'core')
 		{
 			$this->sModule = 'core';
 

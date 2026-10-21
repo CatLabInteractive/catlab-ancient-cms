@@ -210,6 +210,7 @@ class Core_Tools
 
 	public static function output_title ($title)
 	{
+		$title = (string) $title;
 
 		return htmlentities (stripslashes($title), ENT_QUOTES, 'UTF-8');
 
@@ -261,7 +262,7 @@ class Core_Tools
 		$p_close = '</p>';
 		$p_break = '<br />';
 
-		$convert = stripslashes ($text);
+		$convert = stripslashes ((string) $text);
 		$convert = htmlentities ($convert, ENT_QUOTES, 'UTF-8');
 
 		$bbcode_regex = array
@@ -324,23 +325,23 @@ class Core_Tools
 			);
 		}
 
-		// Hyperlinks
-		$convert = eregi_replace(
-			"\[url]([^\[]*)\[/url]",
+		// Hyperlinks (eregi_replace was removed in PHP 7.0)
+		$convert = preg_replace(
+			"/\[url]([^\[]*)\[\/url]/i",
 			"<a target=\"_BLANK\" href=\"\\1\">\\1</a>", $convert);
 		
-		$convert = eregi_replace(
-			"\[url=([^\[]*)\]([^\[]*)\[/url]",
+		$convert = preg_replace(
+			"/\[url=([^\[]*)\]([^\[]*)\[\/url]/i",
 			"<a target=\"_BLANK\" href=\"\\1\">\\2</a>", $convert);
 
 		// Images align=left
-		$convert = eregi_replace(
-			"\[img]([-_./a-zA-Z0-9!&%#?,'=:~]+)\[/img]",
+		$convert = preg_replace(
+			"/\[img]([-_.\/a-zA-Z0-9!&%#?,'=:~]+)\[\/img]/i",
 			"<img class=\"tc\" style=\"margin: 0px 5px;\" src=\"\\1\">", $convert);
 		
 		// Images align=left
-		$convert = eregi_replace(
-			"\[img:([-_./a-zA-Z0-9!&%#?,'=:~]+)\]([-_./a-zA-Z0-9!&%#?,'=:~]+)\[/img]",
+		$convert = preg_replace(
+			"/\[img:([-_.\/a-zA-Z0-9!&%#?,'=:~]+)\]([-_.\/a-zA-Z0-9!&%#?,'=:~]+)\[\/img]/i",
 			"<img class=\"tc\" style=\"margin: 0px 5px;\"  align=\"\\1\" src=\"\\2\">", $convert);
 
 		// Paragraphs and line breaks
@@ -405,6 +406,8 @@ class Core_Tools
 	
 	public static function output_form ($text, $maxLength = 0)
 	{
+		$text = (string) $text;
+
 		if ($maxLength > 0)
 		{
 			return substr (htmlentities (stripslashes ($text) , ENT_QUOTES, 'UTF-8'), 0, $maxLength);
@@ -417,12 +420,12 @@ class Core_Tools
 	
 	public static function output_input ($text, $maxLength = 0)
 	{
-		return self::output_form (str_replace ("\n", '', $text), $maxLength);
+		return self::output_form (str_replace ("\n", '', (string) $text), $maxLength);
 	}
 	
 	public static function output_html ($text, $forEditing = false)
 	{
-		$text = stripslashes ($text);
+		$text = stripslashes ((string) $text);
 		
 		// Replace all relative url's with absolute one's (for the predefined constants)
 		$text = preg_replace ('/src="(?!http)/', 'src="'.CMS_FULL_URL, $text);
@@ -454,6 +457,7 @@ class Core_Tools
 	
 	public static function output_varchar ($text)
 	{
+		$text = (string) $text;
 	
 		$input = Core_Tools::splitLongWords ($text);
 		return htmlentities (stripslashes ($text), ENT_QUOTES, 'UTF-8');
@@ -466,6 +470,8 @@ class Core_Tools
 		$vals['r'] = hexdec( substr($in, 0, 2) );
 		$vals['g'] = hexdec( substr($in, 2, 2) );
 		$vals['b'] = hexdec( substr($in, 4, 2) );
+		
+		$out = '';
 		
 		// loop through
 		foreach( $vals as $val )

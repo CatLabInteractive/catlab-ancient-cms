@@ -103,6 +103,10 @@ class Core_Database
 			
 		foreach ($data as $k => $v)
 		{
+			if ($v === null)
+			{
+				$v = '';
+			}
 		
 			if ($v === 'NOW()')
 			{
@@ -150,6 +154,10 @@ class Core_Database
 		
 		foreach ($data as $k => $v)
 		{
+			if ($v === null)
+			{
+				$v = '';
+			}
 		
 			if ($v === '++')
 			{

@@ -17,7 +17,7 @@ class Modules_Page extends Modules_Module
 		
 		if ($content)
 		{
-			$check_content = strip_tags ($content['text']);
+			$check_content = strip_tags ((string) $content['text']);
 			$check_content = trim ($check_content);
 	
 			if (empty ($check_content))

@@ -5,7 +5,7 @@
 	Copyright: Neuron Interactive
 */
 
-error_reporting(E_ALL & ~ E_STRICT);
+error_reporting(E_ALL);
 
 session_start ();
 
@@ -33,30 +33,15 @@ if
 }
 
 /*
-	Stupid magic quotes
+	Magic quotes were removed in PHP 5.4; the old stripslashes() loop
+	(get_magic_quotes_gpc / each) no longer exists on PHP 8.
 */
-if (get_magic_quotes_gpc())
-{
-        $in = array(&$_GET, &$_POST, &$_COOKIE);
-        while (list($k,$v) = each($in))
-        {
-                foreach ($v as $key => $val)
-                {
-                        if (!is_array($val))
-                        {
-                                $in[$k][$key] = stripslashes($val);
-                                continue;
-                        }
-                        $in[] =& $in[$k][$key];
-                }
-        }
-        unset ($in);
-}
 
 /* 
 	Auto include (real OOP, hehe) 
+	__autoload() was removed in PHP 8.0; use spl_autoload_register().
 */
-function __autoload ($classname)
+spl_autoload_register (function ($classname)
 {
 	$classpath = str_replace ('_', '/', $classname) . '.php';
 	
@@ -73,7 +58,7 @@ function __autoload ($classname)
 	{
 		return false;
 	}
-}
+});
 
 function br2nl($string)
 {
