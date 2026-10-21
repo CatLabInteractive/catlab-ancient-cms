@@ -22,6 +22,7 @@ class CMS
 	private $sOutput = 'html';
 	
 	private $objSettings = null;
+	private $objBreadcrumb = null;
 	private $sSiteTitle = 'Undefined Site';
 
 	/*
@@ -132,7 +133,7 @@ class CMS
 			$iKey = 1;
 		}
 
-		if ($sInputs[1] == 'core')
+		if (isset ($sInputs[1]) && $sInputs[1] == 'core')
 		{
 			$this->sModule = 'core';
 

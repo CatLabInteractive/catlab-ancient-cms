@@ -6,6 +6,10 @@ class Core_Template
 	private $values = array ();
 	private $lists = array ();
 
+	private $sTextSection = null;
+	private $sTextFile = null;
+	private $objText = null;
+
 	// Text function
 	public function setTextSection ($sTextSection, $sTextFile = null)
 	{

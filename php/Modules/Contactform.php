@@ -86,6 +86,7 @@ class Modules_Contactform extends Modules_Page
 		$id = $this->objCMS->getRecordId ();
 		
 		$okay = false;
+		$error = null;
 		
 		$input = array ();
 		
