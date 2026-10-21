@@ -4,7 +4,7 @@ if (!function_exists ('getFieldHtml')) {
 	{
 		if (!empty ($lang))
 		{
-			$value = $v['sValue'][$lang];
+			$value = isset ($v['sValue'][$lang]) ? $v['sValue'][$lang] : null;
 			$lang = '_'.$lang;
 		}
 		else
