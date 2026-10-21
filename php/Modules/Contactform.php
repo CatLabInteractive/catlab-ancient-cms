@@ -87,6 +87,7 @@ class Modules_Contactform extends Modules_Page
 		
 		$okay = false;
 		$error = null;
+		$title = '';
 		
 		$input = array ();
 		
