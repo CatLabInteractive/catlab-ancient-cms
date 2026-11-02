@@ -14,8 +14,15 @@ class Modules_Core
         $url = $this->objCMS->getAction ();
         $path = CMS_SYSTEM_PATH . 'core/' . $url;
 
-        if (file_exists ($path))
+        // Only serve regular files that really live below core/: the action comes straight
+        // from the request, so "../" would otherwise read any file the web server can open.
+        $base = realpath (CMS_SYSTEM_PATH . 'core');
+        $real = realpath ($path);
+
+        if ($base !== false && $real !== false && is_file ($real) && strpos ($real, $base . DIRECTORY_SEPARATOR) === 0)
         {
+            $path = $real;
+
             $parts = explode ('.', $path);
             $extension = end ($parts);
             switch (strtolower ($extension))

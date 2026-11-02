@@ -178,7 +178,7 @@ abstract class Modules_Module
 	
 	protected function getNameInUrl ($name)
 	{
-		$name = strtolower ($name);
+		$name = strtolower ((string) $name);
 		return str_replace (' ', '_', $name);
 	}
 	

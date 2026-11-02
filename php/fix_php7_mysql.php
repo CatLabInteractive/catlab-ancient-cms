@@ -4,6 +4,12 @@
  */
 
 if (!function_exists("mysql_connect")){
+    /* PHP 8.1 made mysqli throw mysqli_sql_exception by default (MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT).
+       This shim, and Core_Database on top of it, expect the classic "return false and ask mysql_error()" behaviour. */
+    if (function_exists("mysqli_report")) {
+        mysqli_report(MYSQLI_REPORT_OFF);
+    }
+
     /* warning: fatal error "cannot redeclare" if a function was disabled in php.ini with disable_functions:
     disable_functions =mysql_connect,mysql_pconnect,mysql_select_db,mysql_ping,mysql_query,mysql_fetch_assoc,mysql_num_rows,mysql_fetch_array,mysql_error,mysql_insert_id,mysql_close,mysql_real_escape_string,mysql_data_seek,mysql_result
     */
@@ -34,7 +40,8 @@ if (!function_exists("mysql_connect")){
         return mysqli_num_rows ($e );
     }
     function mysql_affected_rows($e=NULL){
-        return mysqli_affected_rows ($e );
+        global $dbconnect;
+        return mysqli_affected_rows ($e ? $e : $dbconnect );
     }
     function mysql_fetch_array($e){
         return mysqli_fetch_array ($e );
@@ -47,8 +54,9 @@ if (!function_exists("mysql_connect")){
             return '';
         }
     }
-    function mysql_insert_id($cnx){
-        return mysqli_insert_id ( $cnx );
+    function mysql_insert_id($cnx=NULL){
+        global $dbconnect;
+        return mysqli_insert_id ( $cnx ? $cnx : $dbconnect );
     }
     function mysql_close(){
         return true;

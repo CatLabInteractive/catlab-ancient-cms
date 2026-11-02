@@ -31,7 +31,8 @@ class Pages_Pages extends Pages_Admin
 					'n_container' => 'draft',
 					'n_p_id' => 0,
 					'n_level' => 0,
-					'n_module' => $sModule
+					'n_module' => $sModule,
+					'n_options' => ''
 				)
 			);
 		}

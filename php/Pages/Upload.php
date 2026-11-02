@@ -213,8 +213,8 @@ class Pages_Upload extends Pages_Admin
 		
 		$newThumbSize = array
 		(
-			$size[0] / $zoom,
-			$size[1] / $zoom
+			(int) ($size[0] / $zoom),
+			(int) ($size[1] / $zoom)
 		);
 		
 		if ($forceSize)
@@ -224,8 +224,8 @@ class Pages_Upload extends Pages_Admin
 			$color = imagecolorallocate ($newImage, 255, 255, 255);
 			imagefill ($newImage, 0, 0, $color);
 		
-			$offsetX = max (0, ceil (($thumbSize[0] - $newThumbSize[0])) / 2);
-			$offsetY = max (0, ceil (($thumbSize[1] - $newThumbSize[1])) / 2);
+			$offsetX = (int) max (0, ceil (($thumbSize[0] - $newThumbSize[0])) / 2);
+			$offsetY = (int) max (0, ceil (($thumbSize[1] - $newThumbSize[1])) / 2);
 		}
 		else
 		{
